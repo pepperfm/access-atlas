@@ -1,0 +1,32 @@
+{
+    "agents": [
+        "claude_code",
+        "codex"
+    ],
+    "guidelines": true,
+    "herd_mcp": false,
+    "mcp": true,
+    "nightwatch_mcp": false,
+    "packages": [
+        "pepperfm/ai-guidelines",
+        "spatie/laravel-ray"
+    ],
+    "sail": true,
+    "skills": [
+        "wayfinder-development",
+        "pest-testing",
+        "inertia-vue-development",
+        "tailwindcss-development",
+        "commit",
+        "laravel-macros",
+        "laravel-php-style",
+        "laravel-sail-and-tests",
+        "nuxt-ui-integration",
+        "nuxt-ui-mcp-and-docs",
+        "nuxt-ui-patterns",
+        "plan",
+        "review",
+        "spatie-laravel-data",
+        "debugging-output-and-previewing-html-using-ray"
+    ]
+}

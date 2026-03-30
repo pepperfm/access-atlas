@@ -1,0 +1,27 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Enums;
+
+use App\Concerns\InteractsWithEnumOptions;
+
+enum AppRole: string
+{
+    use InteractsWithEnumOptions;
+
+    case Owner = 'owner';
+    case Administrator = 'administrator';
+    case Manager = 'manager';
+    case Developer = 'developer';
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::Owner => 'Владелец',
+            self::Administrator => 'Администратор',
+            self::Manager => 'Менеджер',
+            self::Developer => 'Разработчик',
+        };
+    }
+}
