@@ -1,8 +1,30 @@
 import antfu from '@antfu/eslint-config';
 
 export default antfu({
+    ignores: ['resources/js/ziggy.js'],
     vue: true,
     rules: {
+        'style/arrow-parens': ['error', 'always'],
+        'style/indent': ['error', 4],
+        'style/indent-binary-ops': 'off',
+        'style/member-delimiter-style': [
+            'error',
+            {
+                multiline: {
+                    delimiter: 'semi',
+                    requireLast: true,
+                },
+                multilineDetection: 'brackets',
+                singleline: {
+                    delimiter: 'semi',
+                    requireLast: false,
+                },
+            },
+        ],
+        'style/operator-linebreak': 'off',
+        'style/quote-props': 'off',
+        'style/semi': ['error', 'always'],
+
         'unicorn/error-message': 'off',
 
         curly: ['error', 'all'],
@@ -40,24 +62,9 @@ export default antfu({
 
         // Если атрибутов (props) ≤ 2 — можно в одну строку.
         // Если > 2 — переносим на новые строки, по одному на строку.
-        'vue/max-attributes-per-line': [
-            'error',
-            {
-                singleline: 2,
-                multiline: { max: 1 },
-            },
-        ],
-
-        'vue/html-indent': [
-            'error',
-            2,
-            {
-                baseIndent: 1,
-                attribute: 1,
-                closeBracket: 0,
-                alignAttributesVertically: true,
-            },
-        ],
+        'vue/max-attributes-per-line': 'off',
+        'vue/html-indent': 'off',
+        'vue/operator-linebreak': 'off',
 
         'antfu/if-newline': 'off',
     },

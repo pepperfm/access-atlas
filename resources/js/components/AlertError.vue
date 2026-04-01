@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from 'vue';
 
 interface Props {
-  errors: string[]
-  title?: string
+    errors: string[];
+    title?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  title: 'Something went wrong.',
-})
+    title: 'Something went wrong.',
+});
 
-const uniqueErrors = computed(() => [...new Set(props.errors)])
+const uniqueErrors = computed(() => [...new Set(props.errors)]);
 </script>
 
 <template>
-  <UAlert
-    color="error"
-    variant="subtle"
-    icon="i-lucide-circle-alert"
-    :title="title"
-  >
-    <template #description>
-      <ul class="list-inside list-disc text-sm">
-        <li v-for="(error, index) in uniqueErrors" :key="index">
-          {{ error }}
-        </li>
-      </ul>
-    </template>
-  </UAlert>
+    <UAlert
+        color="error"
+        variant="subtle"
+        icon="i-lucide-circle-alert"
+        :title="title"
+    >
+        <template #description>
+            <ul class="list-inside list-disc text-sm">
+                <li v-for="(error, index) in uniqueErrors" :key="index">
+                    {{ error }}
+                </li>
+            </ul>
+        </template>
+    </UAlert>
 </template>

@@ -1,31 +1,39 @@
 <script setup lang="ts">
-import { useColorMode } from '#imports'
+import { useColorMode } from '@vueuse/core';
 
-const colorMode = useColorMode()
+const colorMode = useColorMode();
 
 const tabs = [
-  { value: 'light' as const, icon: 'i-lucide-sun', label: 'Светлая' },
-  { value: 'dark' as const, icon: 'i-lucide-moon', label: 'Тёмная' },
-]
+    { value: 'light' as const, icon: 'i-lucide-sun', label: 'Светлая' },
+    { value: 'dark' as const, icon: 'i-lucide-moon', label: 'Тёмная' },
+];
+
+function isActiveColorMode(value: 'light' | 'dark'): boolean {
+    return colorMode.value === value;
+}
+
+function setColorMode(value: 'light' | 'dark'): void {
+    colorMode.store.value = value;
+}
 </script>
 
 <template>
-  <div
-    class="inline-flex gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800"
-  >
-    <button
-      v-for="{ value, icon, label } in tabs"
-      :key="value"
-      class="flex items-center rounded-md px-3.5 py-1.5 transition-colors"
-      :class="[
-        colorMode.value === value
-          ? 'bg-white shadow-xs dark:bg-neutral-700 dark:text-neutral-100'
-          : 'text-neutral-500 hover:bg-neutral-200/60 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-700/60',
-      ]"
-      @click="colorMode.preference = value"
+    <div
+        class="inline-flex gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800"
     >
-      <UIcon :name="icon" class="-ml-1 size-4" />
-      <span class="ml-1.5 text-sm">{{ label }}</span>
-    </button>
-  </div>
+        <button
+            v-for="{ value, icon, label } in tabs"
+            :key="value"
+            class="flex items-center rounded-md px-3.5 py-1.5 transition-colors"
+            :class="[
+                isActiveColorMode(value)
+                    ? 'bg-white shadow-xs dark:bg-neutral-700 dark:text-neutral-100'
+                    : 'text-neutral-500 hover:bg-neutral-200/60 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-700/60',
+            ]"
+            @click="setColorMode(value)"
+        >
+            <UIcon :name="icon" class="-ml-1 size-4" />
+            <span class="ml-1.5 text-sm">{{ label }}</span>
+        </button>
+    </div>
 </template>

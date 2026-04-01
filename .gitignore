@@ -38,3 +38,4 @@ components.d.ts
 .ai-factory.json
 .mcp.json
 .tg-bot*
+.playwright-mcp

@@ -11,8 +11,7 @@
         "format:check": "prettier --check resources/",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue ./resources",
         "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx,.vue ./resources",
-        "typecheck": "bun run codegen && vue-tsc --noEmit",
-        "typecheck:client": "bun run codegen && tsc --noEmit -p tsconfig.client.json"
+        "typecheck": "bun run codegen && vue-tsc --noEmit"
     },
     "devDependencies": {
         "@antfu/eslint-config": "^7.2.0",
